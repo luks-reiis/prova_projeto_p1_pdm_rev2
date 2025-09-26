@@ -7,7 +7,7 @@ export class LembreteItem extends Component {
                 <p className='w-75 text-center ms-3 fs-1'>{this.props.descricao}</p>
                 <div>
                     <i className={`fa-${this.props.favoritado ? "solid" : "regular"} fa-star fa-3x me-2`}></i>
-                    <i className="fa-solid fa-trash fa-3x"></i>
+                    <i className="fa-solid fa-trash fa-3x" onClick={() => this.props.remover_lembrete(this.props.descricao)}></i>
                 </div>
             </div>
         )

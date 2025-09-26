@@ -14,6 +14,7 @@ export class LembreteLista extends Component {
                             < LembreteItem
                                 descricao={lembrete.descricao}
                                 favoritado={lembrete.favoritado}
+                                remover_lembrete={this.props.remover_lembrete}
                             />
                         ))
 

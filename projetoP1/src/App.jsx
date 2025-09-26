@@ -17,13 +17,22 @@ class App extends React.Component {
       lista_lembretes: this.state.lista_lembretes
     });
   }
+
+  remover_lembrete = (descricao) => {
+    this.setState({
+      lista_lembretes: this.state.lista_lembretes.filter(
+        (lembrete) => lembrete.descricao !== descricao
+      )
+    });
+  }
+
   render() {
     console.log(this.state.lista_lembretes)
     return (
       <div className="container mt-5">
         <div className="row">
           <div className="col-12">
-            <LembreteLista lista_lembretes={this.state.lista_lembretes} />
+            <LembreteLista lista_lembretes={this.state.lista_lembretes} remover_lembrete={this.remover_lembrete} />
             <LembreteEntrada novo_lembrete={this.adicionar_lembrete} />
           </div>
         </div>
