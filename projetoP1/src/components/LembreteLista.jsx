@@ -1,31 +1,25 @@
 import React, { Component } from 'react'
+import LembreteItem from './LembreteItem'
 
 export class LembreteLista extends Component {
+
     render() {
+        console.log(this.props.lista_lembretes);
         return (
             <div className="card pt-5 px-2">
                 <div className="card-body">
-                    <div className='d-flex justify-content-between align-items-center border rounded mb-5 px-5' style={{ height: '6rem' }}>
-                        <p className='w-75 text-center ms-3 fs-1'>Preparar aula de programação</p>
-                        <div>
-                            <i className="fa-solid fa-star fa-3x me-2"></i>
-                            <i className="fa-solid fa-trash fa-3x"></i>
-                        </div>
-                    </div>
-                    <div className='d-flex justify-content-between align-items-center border rounded mb-5 px-5' style={{ height: '6rem' }}>
-                        <p className='w-75 text-center ms-3 fs-1'>Fazer feira</p>
-                        <div>
-                            <i className="fa-regular fa-star fa-3x me-2"></i>
-                            <i className="fa-solid fa-trash fa-3x"></i>
-                        </div>
-                    </div>
-                    <div className='d-flex justify-content-between align-items-center border rounded mb-5 px-5' style={{ height: '6rem' }}>
-                        <p className='w-75 text-center ms-3 fs-1'>Preparar marmitas</p>
-                        <div>
-                            <i className="fa-regular fa-star fa-3x me-2"></i>
-                            <i className="fa-solid fa-trash fa-3x"></i>
-                        </div>
-                    </div>
+
+                    {this.props.lista_lembretes && this.props.lista_lembretes.length !== 0 ?
+                        this.props.lista_lembretes.map(lembrete => (
+                            < LembreteItem
+                                descricao={lembrete.descricao}
+                                favoritado={lembrete.favoritado}
+                            />
+                        ))
+
+                        :
+                        <p className='text-center ms-3 fs-1'>Não há lembretes!</p>
+                    }
                 </div>
             </div>
         )

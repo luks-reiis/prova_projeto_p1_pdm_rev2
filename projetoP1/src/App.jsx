@@ -23,7 +23,7 @@ class App extends React.Component {
       <div className="container mt-5">
         <div className="row">
           <div className="col-12">
-            <LembreteLista />
+            <LembreteLista lista_lembretes={this.state.lista_lembretes} />
             <LembreteEntrada novo_lembrete={this.adicionar_lembrete} />
           </div>
         </div>
