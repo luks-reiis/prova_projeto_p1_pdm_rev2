@@ -1,5 +1,6 @@
 import React from "react"
 import LembreteEntrada from "./components/LembreteEntrada";
+import LembreteLista from "./components/LembreteLista";
 class App extends React.Component {
   state = {
     lista_lembretes: []
@@ -22,6 +23,7 @@ class App extends React.Component {
       <div className="container mt-5">
         <div className="row">
           <div className="col-12">
+            <LembreteLista />
             <LembreteEntrada novo_lembrete={this.adicionar_lembrete} />
           </div>
         </div>
