@@ -26,13 +26,32 @@ class App extends React.Component {
     });
   }
 
+  alternar_favorito = (descricao) => {
+    const novaLista = [];
+    this.state.lista_lembretes.map(lembrete => {
+      if (lembrete.descricao === descricao) {
+        novaLista.push({
+          descricao: lembrete.descricao,
+          favoritado: !lembrete.favoritado
+        });
+      } else {
+        novaLista.push(lembrete);
+      }
+    });
+    this.setState({
+      lista_lembretes: novaLista
+    });
+  }
+
   render() {
-    console.log(this.state.lista_lembretes)
     return (
       <div className="container mt-5">
         <div className="row">
           <div className="col-12">
-            <LembreteLista lista_lembretes={this.state.lista_lembretes} remover_lembrete={this.remover_lembrete} />
+            <LembreteLista
+              lista_lembretes={this.state.lista_lembretes} remover_lembrete={this.remover_lembrete}
+              alternar_favorito={this.alternar_favorito}
+            />
             <LembreteEntrada novo_lembrete={this.adicionar_lembrete} />
           </div>
         </div>

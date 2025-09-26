@@ -4,7 +4,6 @@ import LembreteItem from './LembreteItem'
 export class LembreteLista extends Component {
 
     render() {
-        console.log(this.props.lista_lembretes);
         return (
             <div className="card pt-5 px-2">
                 <div className="card-body">
@@ -15,6 +14,7 @@ export class LembreteLista extends Component {
                                 descricao={lembrete.descricao}
                                 favoritado={lembrete.favoritado}
                                 remover_lembrete={this.props.remover_lembrete}
+                                alternar_favorito={this.props.alternar_favorito}
                             />
                         ))
 
